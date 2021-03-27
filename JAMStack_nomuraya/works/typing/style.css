@@ -1,0 +1,23 @@
+.monitor {
+  background-color: yellow;
+  border: solid 2px;
+  padding: 10px;
+}
+
+.monitor h1, .monitor h2 {
+  text-align: center;
+}
+
+.monitor>div {
+  display: flex;
+}
+
+.monitor>div>div, .monitor>div>aside {
+  width: 50%;
+  border: solid 1px;
+  padding: 5px;
+}
+
+#unit, #result {
+  display: none;
+}
