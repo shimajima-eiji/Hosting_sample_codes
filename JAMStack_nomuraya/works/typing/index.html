@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>運指を覚えよう！aからzまでブラインドタッチタイピング！</title>
+    <link rel="stylesheet" href="./style.css">
+  </head>
+
+  <body>
+    <section>
+      <h1>遊び方</h1>
+      <ul>
+        <li>abcde...vwxyzと、アルファベッドを順番に入力していきます。</li>
+        <li>aからzまでを1周として、10周まで繰り返した結果を競います。</li>
+        <li>ミスなくタイプができるとコンボがつながります。</li>
+        <li>コンボがつながると、スコアが伸びやすくなります。</li>
+        <li>ミスするとコンボがなくなり、スコアが-10されます。</li>
+        <li>10周終わると終了です。ボーナス10000点 / タイム（秒）を得られます。</li>
+      </ul>
+    </section>
+
+    <section class="monitor">
+      <h1>ゲーム画面</h1>
+      <div>
+        <div>
+          <h2><span id="rap">1</span>周目</h2>
+          <h2>次の文字：　【 <span id="next"></span> 】</h2>
+          <input id="typing_game_input" placeholder="１文字入力されると自動的に削除されます" disabled="disabled" />
+          <br />
+          <button id="start">開始（全角モードをオフにしてください）</button>
+        </div>
+        <aside>
+          <h2>スコア</h2>
+          <ul>
+            <li>ハイスコア：<span id="hi-score">0</span>点</li>
+            <li>スコア：<span id="score">0</span>点</li>
+            <li>タイム：<span id="minute"></span><span id="unit">分 </span><span id="second">0</span>秒</li>
+            <li>ミス：<span id="miss">0</span>回</li>
+            <li>コンボ：<span id="combo">0</span>連鎖</li>
+            <li>最大コンボ：<span id="max_combo">0</span>連鎖</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <section id="result">
+      <h1>結果発表</h1>
+      <p>間違えたキーと間違えた回数を記録しています。</p>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+    <script src="./game.js"></script>
+  </body>
+
+</html>
