@@ -1,1 +1,2 @@
-http://nomuraya.web.app/works_typing
+- [GitHub Pages](https://shimajima-eiji.github.io/Hosting_sample_codes/JAMStack_nomuraya/works/typing/)
+- [解説](http://nomuraya.web.app/works_typing)
