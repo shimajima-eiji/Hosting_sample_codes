@@ -23,7 +23,7 @@ const ids = {
 //
 const params = {
   count: 0, // 現在の周回
-  loop: 1,  // 10回繰り返す
+  loop: 10,  // 10回繰り返す
   score: 0, // スコア
   combo: 0, // スコアボーナス
   max_combo: 0, // コンボボーナス
@@ -73,13 +73,19 @@ const __LIBRARY = {
   code: ( code = system.code.now ) => String.fromCharCode( code ),
 }
 
+// IDEの都合で先にnullを入れて他で参照しやすいようにしている
+// nullを入れたキーは後で入れているので、変更時は両方対応する必要がある
 const __WRAPPER = {
   time: {
     sec: __LIBRARY.get( ids.sec ),
     min: __LIBRARY.get( ids.min ),
     unit: __LIBRARY.get( ids.unit ),
+    func: null,
   },
-  trigger: ( id, action, func ) => __LIBRARY.get( id ).addEventListener( action, func )
+  trigger: ( id, action, func ) => __LIBRARY.get( id ).addEventListener( action, func ),
+  next_key: null,
+  table: null,
+  misskey: null,
 };
 
 // タイマー処理
@@ -271,7 +277,7 @@ const controller = {
     params.max_combo = 0;
     __LIBRARY.set( ids.max_combo, params.max_combo );
 
-    system.time.all_id = setInterval( system.time.all_id, system.interval );
+    system.time.all_id = setInterval( __WRAPPER.time.func, system.interval );
   },
 
   input: ( element ) =>  // タイピング入力
@@ -328,7 +334,7 @@ const controller = {
 
       // 間違えたキーの情報を収集
       input.placeholder = value;  // タイプミス時は何で間違えたか見えるように更新する
-      __WRAPPER.misskey_f();
+      __WRAPPER.misskey();
     }
 
     /**
